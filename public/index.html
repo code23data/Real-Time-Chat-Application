@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="login-overlay">
+      <div class="login-box">
+        <h1>Welcome to ChatApp</h1>
+        <p>Please enter a username to join</p>
+        <input type="text" id="username-input" placeholder="Username..." required>
+        <button id="join-btn">Join Chat</button>
+      </div>
+    </div>
+    <div class="app-container">
+      <aside class="sidebar">
+        <h3>Rooms</h3>
+        <ul id="room-list">
+          <li class="room-item active" data-room="General">General</li>
+          <li class="room-item" data-room="Coding">Coding</li>
+        </ul>
+      </aside>
 
+      <main class="chat-area">
+        <header class="chat-header">
+          <h2 id="current-room-name">General</h2>
+        </header>
+
+        <div id="message-display">
+          </div>
+
+        <form id="chat-form">
+          <input type="text" id="msg-input" placeholder="Type a message..." required>
+          <button type="submit">Send</button>
+        </form>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
