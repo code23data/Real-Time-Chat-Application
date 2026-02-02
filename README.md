@@ -25,10 +25,10 @@ Before running this application, ensure you have the following installed:
    ```
 
 4. **Start the server** by running:
-```bash
-node server.js
+   ```bash
+   node server.js
 
-```
+   ```
 
 
 5. **Open your browser** and navigate to:
