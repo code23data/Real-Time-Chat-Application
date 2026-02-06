@@ -27,6 +27,35 @@ overflow-y: auto; /* Enable scrollbar only here */
 padding: 20px;
 }
 
+.message {
+    background: white;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+    max-width: 75%;
+}
+.message .meta {
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 6px;
+}
+.message .time {
+    color: #888;
+    font-weight: 400;
+    margin-left: 8px;
+    font-size: 0.75rem;
+}
+.message .text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #222;
+}
+.message.own {
+    margin-left: auto;
+    background: #dff0ea;
+}
+
 #chat-form {
 display: flex;
 padding: 20px;
@@ -44,6 +73,11 @@ margin-right: 10px;
         display: none; /* Simplest way to handle mobile for a 1-day project */
     }
 }
+
+.new-room { padding: 12px 20px; display:flex; gap:8px; }
+.new-room input { flex:1; padding:8px; border-radius:4px; border:1px solid #ccc; }
+.new-room button { padding:8px 12px; border-radius:4px; border:none; background:#27ae60; color:white; cursor:pointer; }
+.new-room button:hover { background:#219150; }
 
 #login-overlay {
 position: fixed;

@@ -23,6 +23,10 @@
           <li class="room-item active" data-room="General">General</li>
           <li class="room-item" data-room="Coding">Coding</li>
         </ul>
+        <div class="new-room">
+          <input id="new-room-input" type="text" placeholder="New room name" />
+          <button id="add-room-btn">Add Room</button>
+        </div>
       </aside>
 
       <main class="chat-area">
@@ -39,6 +43,7 @@
         </form>
       </main>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
