@@ -26,21 +26,18 @@ Small chat demo built with Node.js, Express and Socket.IO. The frontend includes
 **Quick start**
 
 1. Open a terminal and change into the project folder:
-
-```bash
-cd Real-Time-Chat-Application-main
-```
+  ```bash
+  cd Real-Time-Chat-Application-main
+  ```
 
 2. Install dependencies and start the server:
-
-```bash
-npm install
-node server.js
-```
+  ```bash
+  npm install
+  node server.js
+  ```
 
 3. Open the app in your browser:
-
-http://localhost:3000
+  http://localhost:3000
 
 **Usage**
 
