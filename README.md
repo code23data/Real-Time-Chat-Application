@@ -10,34 +10,55 @@ A lightweight, web-based chat platform built with Node.js, Express, and Socket.i
 * **Responsive UI:** Optimized for both desktop and mobile viewing.
 * **Timestamps:** Every message is stamped with the local time of delivery.
 
-## Prerequisites
-Before running this application, ensure you have the following installed:
-* [Node.js](https://nodejs.org/) (v14 or higher)
-* npm (comes with Node.js)
+# Real-Time Chat Application
 
-## Installation & Setup
-1. **Extract** the compressed folder.
-2. **Open your terminal** or command prompt in the project directory.
-3. **Install dependencies** by running:
-   ```bash
-   npm install
+Small chat demo built with Node.js, Express and Socket.IO. The frontend includes local `localStorage`-backed per-room message persistence and a UI for creating additional rooms.
 
-   ```
+**Features**
 
-4. **Start the server** by running:
-   ```bash
-   node server.js
+- Real-time chat using Socket.IO, scoped by rooms.
+- Per-room message persistence in the browser using `localStorage` (messages are stored locally and rendered on room switch).
+- Simple message formatting: `*bold*`, `_italics_`, and automatic link detection.
+- Highlighting for your own messages.
+- Create new rooms from the sidebar; created rooms persist across page reloads.
+- Stored messages are cleared on browser/tab close (current behavior). See Notes for customization.
 
-   ```
+**Quick start**
 
+1. Open a terminal and change into the project folder:
 
-5. **Open your browser** and navigate to:
-`http://localhost:3000`
+```bash
+cd Real-Time-Chat-Application-main
+```
 
-## Project Structure
+2. Install dependencies and start the server:
 
-* `server.js`: The Node.js backend handling Socket.io connections and room logic.
-* `public/`: Contains the frontend assets.
-* `index.html`: The application structure and login overlay.
-* `style.css`: Responsive Flexbox layout and styling.
-* `script.js`: Client-side logic for DOM manipulation and socket events.
+```bash
+npm install
+node server.js
+```
+
+3. Open the app in your browser:
+
+http://localhost:3000
+
+**Usage**
+
+- Enter a username in the welcome overlay to join the chat.
+- Click a room in the left sidebar to switch.
+- Add a new room with the "New room name" field and `Add Room` button.
+- Messages typed in the input are sent to the current room and saved in `localStorage` for that room.
+
+**Notes**
+
+- Messages are sanitized/escaped before rendering to mitigate injection.
+- The current implementation clears stored messages on `beforeunload`. To persist messages across browser restarts, remove the `beforeunload` cleanup in `public/script.js`.
+- Rooms are stored in `localStorage` under the key `chat_rooms_v1`.
+- Message history for rooms is stored under keys like `chat_messages_v1_{roomName}`.
+
+**Files of interest**
+
+- `server.js` — Node/Express + Socket.IO server.
+- `public/index.html` — Frontend markup.
+- `public/style.css` — Frontend styling.
+- `public/script.js` — Frontend logic (message storage, room creation, socket handlers).
