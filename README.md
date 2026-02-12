@@ -46,6 +46,7 @@ Small chat demo built with Node.js, Express and Socket.IO. The frontend includes
 ## Project Structure
 
 - `server.js` — Node/Express + Socket.IO server.
+- `package.json` - A JSON file containing dependencies for Express and Socket.IO.
 - `public/index.html` — Frontend markup.
 - `public/style.css` — Frontend styling.
 - `public/script.js` — Frontend logic (message storage, room creation, socket handlers).
