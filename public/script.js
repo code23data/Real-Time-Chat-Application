@@ -170,13 +170,9 @@ function createMessageElement(data) {
 }
 
 function renderMessagesForRoom(room) {
-    messageDisplay.innerHTML = '';
-    const msgs = loadMessages(room);
-    msgs.forEach(m => {
-        const el = createMessageElement(m);
-        messageDisplay.appendChild(el);
-    });
-    messageDisplay.scrollTop = messageDisplay.scrollHeight;
+    messageDisplay.innerHTML = 'Loading messages...'; 
+    // The socket.emit('join-room') you already have will 
+    // trigger the server to send 'load-history' automatically.
 }
 
 joinBtn.addEventListener('click', () => {
@@ -233,7 +229,17 @@ socket.on('chat-message', (data) => {
     messageDisplay.scrollTop = messageDisplay.scrollHeight;
 });
 
-// Clear stored messages when the browser/tab is being closed (application shutdown)
-window.addEventListener('beforeunload', () => {
-    clearAllStoredMessages();
+socket.on('load-history', (history) => {
+    // 1. Clear the current display so we don't double-up messages
+    messageDisplay.innerHTML = '';
+
+    // 2. Loop through the history sent by the server
+    history.forEach(msg => {
+        // msg contains { user, text, time } from your server logic
+        const el = createMessageElement(msg);
+        messageDisplay.appendChild(el);
+    });
+
+    // 3. Scroll to the bottom so the user sees the latest history
+    messageDisplay.scrollTop = messageDisplay.scrollHeight;
 });
